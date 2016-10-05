@@ -1,0 +1,22 @@
+{
+  "name": "friendlyfred",
+  "version": "1.0.0",
+  "description": "a super helpful friendly bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beamosec/friendlyfred.git"
+  },
+  "author": "beamosec",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beamosec/friendlyfred/issues"
+  },
+  "homepage": "https://github.com/beamosec/friendlyfred#readme",
+  "dependencies": {
+    "discord.js": "^9.3.0"
+  }
+}
