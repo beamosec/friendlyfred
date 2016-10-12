@@ -1,6 +1,7 @@
 var Discord = require("discord.js"); // Initializes discord.js and defines it to "Discord"
 var bot = new Discord.Client(); // Initializes discord client and defines it to "bot"
 var e = new Error(); // e represents error throughout the script
+var prefix = "!fred";
 
 try {
     var config = require("./config.json"); // Checks for config.json, which holds token, etc.
@@ -33,7 +34,10 @@ try {
 }
 
 bot.on('message', (message) => { // Processes messages
-    if (filter[message.content]) { // Checks for keyword
+    //if(message.author.bot)
+          //return;
+
+   if (filter[message.content]) { // Checks for keyword
         try {
             var keyword = message.content; // Stores keyword as variable for short term use
             message.reply(filter[message.content] + "*");
@@ -43,12 +47,22 @@ bot.on('message', (message) => { // Processes messages
             console.log("Could not correct user's message");
         }
 
+    } if (message.content.startsWith(prefix + " help")) { // List Help
+        message.channel.sendMessage("!fred help hi ");
     }
 })
 
 try {
     bot.login(config.token); // Authenticates friendlyfred using token
+    console.log("logging in friendlyfred with token");
 } catch (e) {
     console.log(e.stack);
     console.log("Couldn't find login token in config.json");
 }
+
+bot.on("disconnected", function () {
+
+    console.log("- friendlyfred has been disconnected from the server");
+    process.exit(1); // Exits node.js
+
+});
