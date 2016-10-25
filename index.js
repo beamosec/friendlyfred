@@ -66,3 +66,4 @@ bot.on("disconnected", function () {
     process.exit(1); // Exits node.js
 
 });
+ 
